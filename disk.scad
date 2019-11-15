@@ -5,7 +5,6 @@ module disk(cut) {
     union() {
 
         // Disk with Gate & Keyway
-        translate([0,0,1])
         difference() {
             // Disk with Notch
             union() {
@@ -33,7 +32,7 @@ module disk(cut) {
         }
 
         // Spacers
-        translate([0,0,2])
+        translate([0,0,1])
         difference() {
             linear_extrude(2) circle(r=8);
             translate([0,0,-.1])

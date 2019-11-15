@@ -10,12 +10,12 @@ module animation() {
         for (i=[0:len(pinning)-1]) {
             tpoint = (90-(pinning[i]*10))/90;
 
-            translate([0,0,4+(3.1*i)])
+            translate([0,0,5+(3.1*i)])
             if ( $t > tpoint ) {
                 rotate([0,0,(pinning[i]*10)*($t-tpoint)/(1-tpoint)])
                 disk(pinning[i]);
             } else {
-                //disk(pinning[i]);
+                disk(pinning[i]);
             }
         }
 
