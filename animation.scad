@@ -3,7 +3,7 @@ use <body.scad>
 use <key.scad>
 pinning = [4,5,6,7,8,9];
 
-//$fn = 100;
+$fn = 100;
 module animation() {
     union() {
         color("green",0.75)
