@@ -1,7 +1,7 @@
 include <parameters.scad>
 
 translate([0,0, (len(pinning)*3)+9])
-rotate([0,180,-180*$t])
+rotate([0,180,-360*$t])
 key();
 
 
@@ -12,23 +12,17 @@ module key() {
     union() {
         // Cuts
         for (i=[0:len(pinning)-1]) {
-            translate([0,0,1+(3*i)])
-            keycut(pinning[i]);
-        }
-
-        // Curve on side
-        difference() {
-            translate([0,0,1])
-            linear_extrude(3*len(pinning)) 
-            circle(2.25);
-
-            translate([0,0,.9])
-            linear_extrude(3*len(pinning)+.1) 
-            square(2.25);
+              translate([0,0,1+(3*i)])
+              keycut(pinning[i]);
         }
 
         // Bottom Spacer
-        linear_extrude(1) circle(1.5);
+        linear_extrude(1) 
+        difference() {
+            circle(1.5);
+            translate([-2,-2,0])
+            square([5,2]);
+        }
 
         // Handle
         translate([0,0,1+(3*len(pinning))])
@@ -37,16 +31,20 @@ module key() {
 
         translate([0,0,4+(3*len(pinning))])
         linear_extrude(5) 
-        square([4.5,15], center=true);
+        square([4.5,15], center=true); 
     }
 
 }
 
 module keycut(i) {
 
-    translate([2.25,0,0])
     rotate([0,0,90])
+    translate([0,2.25,0])
     linear_extrude(3) 
-    polygon([[0,0],[0,4.5], [4.5,4.5], [4.5, 4.5*tan(i*10)]]);
+    difference() {
+        circle(4.5);
+        polygon([[-5,0], [5,0], [5,5], [-5,5]]);
+        polygon([[0,0], [-10,-(10*tan((i*20)))], [-10, 0]]);
+    }
 
 }
