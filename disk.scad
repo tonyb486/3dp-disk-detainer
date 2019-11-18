@@ -40,7 +40,15 @@ module disk(cut) {
                 translate([-5,-10,0])  square([10,10]);
             }
 
+            // Label
+            translate([2,-4,1.5]) 
+            rotate([0,0,90])
+            linear_extrude(10) 
+            text(str(cut), size=4);
+
         }
+
+
 
         // Spacers
         translate([0,0,1])
