@@ -1,4 +1,5 @@
-pinning = [4,5,6,7,8,9];
+include <parameters.scad>
+
 body();
 
 module body() {

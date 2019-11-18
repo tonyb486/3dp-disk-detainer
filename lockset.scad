@@ -1,15 +1,13 @@
+include <parameters.scad>
 use <disk.scad>
 use <body.scad>
 use <key.scad>
-
-pinning = [4,5,6,7,8,9];
-$fn=200;
 
 // Lock Body
 body();
 
 // Key
-translate([0,25, (len(pinning)*3.1)+16])
+translate([0,25, (len(pinning)*3)+9])
 rotate([0,180,90])
 key();
 
