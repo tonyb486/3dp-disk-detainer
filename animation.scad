@@ -11,15 +11,19 @@ module animation() {
                     rotate([0,0, (90*$t)-pinning[i]*20])
                     disk(pinning[i]);
                 else
-                    %translate([0,0,5+(3*i)])
+                    translate([0,0,5+(3*i)])
                     disk(pinning[i]);
         }
 
         body();
 
-        translate([0,.25,3])
-        rotate([0,0,90+90*$t])
-        key();
+      //  translate([0,.25,3])
+      //  rotate([0,0,90+90*$t])
+      //  key();
+
+        translate([0,0,3*len(pinning)+7])
+        rotate([0,180,180])
+       % shell();
     }
 }
 
