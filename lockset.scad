@@ -12,10 +12,10 @@ shell();
 
 // Sidebar
 translate([10,15,0])
-cylinder(r=1.5, h=len(pinning)*3+4);
+cylinder(r=1.5, h=len(pinning)*4+1);
 
 // Key
-translate([0,25, (len(pinning)*3)+9])
+translate([0,25, (len(pinning)*4)+9])
 rotate([0,180,90])
 key();
 

@@ -34,24 +34,23 @@ module disk(cut) {
 
             // Keyway
             translate([0,0,-.1])
-            linear_extrude(10) 
+            linear_extrude(2.2) 
             difference() {
                 circle(5);
+                circle(2.0);
                 translate([-5,-10,0])  square([10,10]);
             }
 
-            // Label
-            translate([2,-4,1.5]) 
-            rotate([0,0,90])
-            linear_extrude(10) 
-            text(str(cut), size=4);
-
         }
 
-
-
+        // Label
+        translate([2,-4,1.5]) 
+        rotate([0,0,90])
+        linear_extrude(1) 
+        text(str(cut), size=4);
+        
         // Spacers
-        translate([0,0,1])
+        translate([0,0,2])
         difference() {
             linear_extrude(2) circle(r=8);
             translate([0,0,-.1])
@@ -60,4 +59,7 @@ module disk(cut) {
 
     }
 
+}
+
+module keyshape() {
 }
