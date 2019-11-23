@@ -1,6 +1,5 @@
 include <parameters.scad>
 
-$fn=200;
 for (i=[0:len(pinning)-1]) {
     translate([25*(floor(i/2)),25*(i%2), 0])
     disk(pinning[i]);
@@ -20,7 +19,7 @@ module disk(cut) {
                 // Curved Notch
                 linear_extrude(2)
                 intersection() {
-                    polygon([[0,0], [50,-16], [50,16]]);
+                    polygon([[0,0], [50,-16], [50,17]]);
                     circle(r=11.5);
                 }
             }
@@ -44,10 +43,10 @@ module disk(cut) {
         }
 
         // Label
-        translate([2,-4,1.5]) 
+        translate([3,-5,1.5]) 
         rotate([0,0,90])
         linear_extrude(1) 
-        text(str(cut), size=4);
+        text(str(cut), size=6);
         
         // Spacers
         translate([0,0,2])
@@ -59,7 +58,4 @@ module disk(cut) {
 
     }
 
-}
-
-module keyshape() {
 }
