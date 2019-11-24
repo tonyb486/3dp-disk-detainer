@@ -22,16 +22,19 @@ module animation() {
         translate([2.25,0,3])
         key();
 
-       // translate([0,0,3*len(pinning)+7])
-       // rotate([0,180,180])
-       // shell();
     }
 }
 
+// First Angle
 animation();
 
-/*
+// Second Angle
 translate([0,50,0])
 rotate ([0,0,90])
 animation();
-*/
+
+// Key Visibility
+translate([0,25,0])
+rotate([0,0,90+90*$t])
+translate([2.25, 0,3])
+key();
