@@ -1,21 +1,28 @@
 include <parameters.scad>
 
-//body();
+body();
 
-//translate([0,0,3*len(pinning)+7])
-//rotate([0,180,0])
-shell();
-
+//translate([0,40,0])
+//shell();
 
 module body() {
+    
     difference() {
         // Base of the body
         cylinder(r=12, h=4*len(pinning)+5);
 
         // Cutout for the disks
         translate([0,0,3])
-        cylinder(r=10.5, h=4*len(pinning)+5.2);
+        cylinder(r=10, h=4*len(pinning)+5.2);
 
+        // A notch for each disk
+        for (i=[0:len(pinning)-1]) {
+            translate([0,0,4+(4*i)])
+            hull() {
+                cylinder(r=10, h=4);
+                translate([0,0,1]) cylinder(r=10.35, h=2);
+            }
+        }
         // Cutout for the notches
         translate([0,0,3])
         linear_extrude(4*len(pinning)+11)
@@ -26,12 +33,10 @@ module body() {
         linear_extrude(4*len(pinning)+11)
         polygon([[0,0], [-5,-20], [5,-20]]);
     }
-
-    // Spacer
-    translate([0,0,3])
-    linear_extrude(2) circle(r=8);
-
 }
+
+
+
 
 module shell() {
 

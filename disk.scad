@@ -47,14 +47,6 @@ module disk(cut) {
         rotate([0,0,90])
         linear_extrude(1) 
         text(str(cut), size=6);
-        
-        // Spacers
-        translate([0,0,2])
-        difference() {
-            linear_extrude(2) circle(r=8);
-            translate([0,0,-.1])
-            linear_extrude(2.2) circle(r=6);
-        }
 
     }
 
