@@ -13,14 +13,14 @@ module body() {
 
         // Cutout for the disks
         translate([0,0,3])
-        cylinder(r=10, h=4*len(pinning)+5.2);
+        cylinder(r=9.2, h=4*len(pinning)+5.2);
 
         // A notch for each disk
         for (i=[0:len(pinning)-1]) {
             translate([0,0,4+(4*i)])
             hull() {
-                cylinder(r=10, h=4);
-                translate([0,0,1]) cylinder(r=10.35, h=2);
+                cylinder(r=9, h=4);
+                translate([0,0,1]) cylinder(r=10.5, h=2);
             }
         }
         // Cutout for the notches
